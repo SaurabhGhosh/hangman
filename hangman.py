@@ -147,7 +147,7 @@ class Hangman:
         # Continue until player exits
         while input_char != '1':
             # Take player's input with prompt
-            input_char = input('\nGuess a character\nPress 1 to exit\nPress 2 to change the challenge\n')
+            input_char = input('\nGuess a character\nPress 1 to exit\nPress 2 to change the challenge word\n')
             # If exit letter ('1) is selected, just 'pass' because loop will exit in next iteration
             if input_char == '1':
                 pass
