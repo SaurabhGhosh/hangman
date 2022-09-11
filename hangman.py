@@ -1,5 +1,6 @@
 import os
 import random
+import sys
 
 
 class Hangman:
@@ -136,7 +137,8 @@ class Hangman:
 
     def play_hangman(self):
         """Starts the game"""
-        os.system('cls')
+        # Cleans the screen before rendering
+        # os.system('cls')
         # Pick the next challenge word
         self.pick_next_word()
         # Initiate the blanks
@@ -166,8 +168,14 @@ class Hangman:
 
 # Check whether the game is executed from command
 if __name__ == '__main__':
-    help(Hangman)
-    # Initiate object
-    hangman = Hangman()
+    # help(Hangman)
+    # Initiate object with first argument as filename
+    try:
+        hangman = Hangman(sys.argv[1])
+    # If no argument is passed, initiate without argument and use the file present in path
+    except IndexError as e:
+        print('An error occurred: No file provided for challenge words')
+        print('Using default file in path.')
+        hangman = Hangman()
     # Call method to start play
     hangman.play_hangman()
